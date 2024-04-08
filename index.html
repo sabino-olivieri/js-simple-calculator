@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">    
+    <!-- font -->
+    <link href="https://fonts.cdnfonts.com/css/seven-segment" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+    <title>Simple calculator</title>
+</head>
+<body>
+    <!-- container -->
+    <div class="calc container">
+        <!-- header -->
+        <header class="header-logo center">
+            <img src="./img/boosio-logo.png" alt="">
+        </header>
+        <!-- /header -->
+
+        <!-- display -->
+        <div class="display flex">
+            <span class="text-display">0</span>
+        </div>
+        <!-- /display -->
+
+
+        <!-- main-calc -->
+        <div class="main-calc flex">
+
+            <!-- calc-sx -->
+            <div class="calc-sx flex">
+                <button class="btn number" value="7">7</button>
+                <button class="btn number" value="8">8</button>
+                <button class="btn number" value="9">9</button>
+                <button class="btn number" value="4">4</button>
+                <button class="btn number" value="5">5</button>
+                <button class="btn number" value="6">6</button>
+                <button class="btn number" value="1">1</button>
+                <button class="btn number" value="2">2</button>
+                <button class="btn number" value="3">3</button>
+                <button class="btn zero number" value="0">0</button>
+                <button class="btn orange result" value="=">&equals;</button>
+
+            </div>
+            <!-- /calc-sx -->
+
+            <!-- /calc-dx -->
+            <div class="calc-dx flex">
+                <button class="btn-dx orange canc" value="c">C</button>
+                <button class="btn-dx operations" value="+">&plus;</button>
+                <button class="btn-dx operations" value="-">&minus;</button>
+                <button class="btn-dx operations" value="x">&times;</button>
+                <button class="btn-dx operations" value="/">&divide;</button>
+            </div>
+            <!-- /calc-dx -->
+
+        </div>
+        <!-- /main-calc -->
+
+    </div>
+    <!-- //container -->
+    
+
+    <script src="./js/function.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
