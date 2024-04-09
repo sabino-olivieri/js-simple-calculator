@@ -6,10 +6,10 @@
 function addNumber(elemClicked, text) {
 
     const textValue =  text.innerHTML;
-    console.log("Display:",textValue);
+    // console.log("Display:",textValue);
 
     const clickedValue = elemClicked.value;
-    console.log("Tasto:", clickedValue);
+    // console.log("Tasto:", clickedValue);
 
     if(textValue != "0" && result === "none") {
         text.innerHTML += clickedValue;
@@ -48,6 +48,10 @@ function equalOperation (firstNum, secondNum, operation) {
 
         default:
             break;
+    }
+
+    if (res === Infinity) {
+        res = "Errore"
     }
 
     return res;

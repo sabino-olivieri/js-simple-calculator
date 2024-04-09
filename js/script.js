@@ -17,6 +17,7 @@ let num1 = 0;
 let num2 = 0;
 let operator ="";
 let result = "none";
+let flagEqual = false;
 
 // prendo elemento scritta dispaly
 const dispalyElem = document.querySelector(".text-display");
@@ -36,21 +37,29 @@ for (let i = 0; i < numElem.length; i++) {
 for(let i = 0; i < operatorElem.length; i++) {
     operatorElem[i].addEventListener("click", function(){
 
-        operator = operatorElem[i].value;
-        console.log(operator);
+        console.log("num1:", num1, "num2:", num2, "op:", operator);
+
+        if(flagEqual) {
+            num1 = 0;
+            num2 = 0;
+        }
 
         if (num1 === 0) {
 
             num1 = parseFloat(dispalyElem.innerHTML);
-            console.log(num1, "Numero1");
+            // console.log(num1, "Numero1");
 
         } else {
 
+
             num2 = parseFloat(dispalyElem.innerHTML);
-            console.log("numero2", num2);
+            // console.log("numero2", num2);
             num1 = equalOperation(num1, num2, operator);
+            num2 = 0;
 
         }
+
+        operator = operatorElem[i].value;
 
         dispalyElem.innerHTML = "0";
     });
@@ -58,18 +67,18 @@ for(let i = 0; i < operatorElem.length; i++) {
 
 // aggiungo event listner a uguale
 equalElem.addEventListener("click", function() {
+    // console.log(operator, num1, num2);
+    
+    if (num2 === 0){ 
     num2 = parseFloat(dispalyElem.innerHTML);
-    console.log(num2, typeof num2);
+    // console.log(num2, typeof num2);
+    }
     result = equalOperation(num1, num2, operator);
     console.log(result);
-    
 
-    if (result === Infinity) {
-        result = "Errore"
-    }
+    num1 = result;
 
-    num1 = 0;
-    num2 = 0;   
+    flagEqual = true;
 
     dispalyElem.innerHTML = result;
 }); 
