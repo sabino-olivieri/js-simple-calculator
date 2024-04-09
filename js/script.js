@@ -27,6 +27,12 @@ for (let i = 0; i < numElem.length; i++) {
     numElem[i].addEventListener("click", function () {
 
         addNumber(numElem[i], dispalyElem, result);
+        if (result !== "none") {
+
+            result = "none";
+            num1 = 0;
+            num2 = 0;  
+        }
         
     });
 }
@@ -38,9 +44,10 @@ for(let i = 0; i < operatorElem.length; i++) {
         console.log("num1:", num1, "num2:", num2, "op:", operator);
 
         if(result !== "none") {
+            
+            result = "none";
             num1 = 0;
             num2 = 0;
-            result = "none";
             console.log("RESET","num1:", num1, "num2:", num2, "op:", operator);
         }
 
