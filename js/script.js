@@ -17,7 +17,6 @@ let num1 = 0;
 let num2 = 0;
 let operator ="";
 let result = "none";
-let flagEqual = false;
 
 // prendo elemento scritta dispaly
 const dispalyElem = document.querySelector(".text-display");
@@ -27,9 +26,8 @@ for (let i = 0; i < numElem.length; i++) {
 
     numElem[i].addEventListener("click", function () {
 
-        const flag = addNumber(numElem[i], dispalyElem, result);
-        result = flag;
-
+        addNumber(numElem[i], dispalyElem, result);
+        
     });
 }
 
@@ -39,29 +37,33 @@ for(let i = 0; i < operatorElem.length; i++) {
 
         console.log("num1:", num1, "num2:", num2, "op:", operator);
 
-        if(flagEqual) {
+        if(result !== "none") {
             num1 = 0;
             num2 = 0;
+            result = "none";
+            console.log("RESET","num1:", num1, "num2:", num2, "op:", operator);
         }
 
+        //se il num1 è non è stato preso, prendilo dal display
         if (num1 === 0) {
 
             num1 = parseFloat(dispalyElem.innerHTML);
-            // console.log(num1, "Numero1");
+            console.log(num1, "Numero1");
 
         } else {
 
-
+            //num2 lo prendo dal display e num1 diventa il risultato di num1 +(operazione)+ num2
             num2 = parseFloat(dispalyElem.innerHTML);
-            // console.log("numero2", num2);
+            console.log("numero2", num2);
             num1 = equalOperation(num1, num2, operator);
             num2 = 0;
 
         }
 
         operator = operatorElem[i].value;
-
         dispalyElem.innerHTML = "0";
+
+        
     });
 }
 
@@ -69,6 +71,7 @@ for(let i = 0; i < operatorElem.length; i++) {
 equalElem.addEventListener("click", function() {
     // console.log(operator, num1, num2);
     
+    // serve per continuare la stessa operazione quando si clicca sempre uguale
     if (num2 === 0){ 
     num2 = parseFloat(dispalyElem.innerHTML);
     // console.log(num2, typeof num2);
@@ -76,9 +79,9 @@ equalElem.addEventListener("click", function() {
     result = equalOperation(num1, num2, operator);
     console.log(result);
 
+    if(!isNaN(result)){
     num1 = result;
-
-    flagEqual = true;
+    }
 
     dispalyElem.innerHTML = result;
 }); 
